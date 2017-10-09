@@ -1,3 +1,5 @@
+import java.io.File;
+import java.io.FileNotFoundException;
 import java.util.Scanner;
 
 /**
@@ -8,9 +10,18 @@ class Main {
 
     final private Scanner sc = new Scanner(System.in);
 
+
     public Main(){
 
-        while(true){
+/*        final File file = new File("C:/Users/Karl/Documents/GitHub/UVA/testInput.txt");
+        Scanner sc = null;
+        try {
+            sc = new Scanner(file);
+        } catch (FileNotFoundException e) {
+            e.printStackTrace();
+        }*/
+
+        while(sc.hasNext()){
             int i = sc.nextInt();
             int j = sc.nextInt();
             int max = maxCycles(i, j);
