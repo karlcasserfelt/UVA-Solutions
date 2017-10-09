@@ -1,35 +1,57 @@
+import java.util.Scanner;
+
 /**
  * Created by Karl on 2017-10-09.
  */
-public class UVA100 {
+class UVA100 {
 
+
+    final private Scanner sc = new Scanner(System.in);
 
     public UVA100(){
-        int i = printN(22, 0);
+        while(sc.hasNext()){
+            int i = sc.nextInt();
+            int j = sc.nextInt();
+            int max = maxCycles(i, j);
 
-        System.out.println("DONE : " + i);
+            System.out.println(i + " " + j + " " + max);
+
+        }
     }
 
-    public static void main(String[] args){
-        new UVA100();
+
+
+    int maxCycles(int min, int max){
+
+        int maxCycles = 0;
+
+        for (int i = min; i <= max ; i++){
+
+            int cycles = getCycles(i, 0);
+            if (cycles > maxCycles){
+                maxCycles = cycles;
+            }
+        }
+        return maxCycles;
     }
 
+    int getCycles(int n, int cycleCount){
 
-    int printN(int n, int i){
-
-        i++;
-
-        System.out.println("I: " + i);
-        System.out.println("N: " + n);
+        cycleCount++;
 
         if (n == 1){
-            return i;
+            return cycleCount;
         }
 
         if (n % 2 == 0){
-            return printN(n/2, i);
+            return getCycles(n/2, cycleCount);
         }else{
-            return printN(3 * n +1, i);
+            return getCycles(3 * n +1, cycleCount);
         }
+    }
+
+
+    public static void main(String[] args){
+        new UVA100();
     }
 }
