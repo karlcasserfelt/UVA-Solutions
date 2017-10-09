@@ -3,13 +3,14 @@ import java.util.Scanner;
 /**
  * Created by Karl on 2017-10-09.
  */
-class UVA100 {
+class Main {
 
 
     final private Scanner sc = new Scanner(System.in);
 
-    public UVA100(){
-        while(sc.hasNext()){
+    public Main(){
+
+        while(true){
             int i = sc.nextInt();
             int j = sc.nextInt();
             int max = maxCycles(i, j);
@@ -52,6 +53,6 @@ class UVA100 {
 
 
     public static void main(String[] args){
-        new UVA100();
+        new Main();
     }
 }
